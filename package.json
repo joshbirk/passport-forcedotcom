@@ -12,5 +12,5 @@
     "passport-oauth": ">= 0.1.2"
   },
   "engines": { "node": ">= 0.4.0" },
-  "keywords": ["passport", "salesforce", "salesforce.com", "force.com", "database.com" "auth", "authn", "authentication", "identity"]
+  "keywords": ["passport", "salesforce", "salesforce.com", "force.com", "database.com", "auth", "authn", "authentication", "identity"]
 }

@@ -57,3 +57,5 @@ To run locally:
 4. Run: `node app.js`
 5. Open `localhost:3000` in the browser and try to login using OAuth.
 
+###Authors
+<a href='https://twitter.com/joshbirk' target='_blank'>Joshua Birk</a> & <a href='https://twitter.comrajaraodv' target='_blank'> Raja Rao DV </a>

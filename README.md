@@ -26,6 +26,7 @@ var passport = require('passport')
 ```
 
 And then setup some routes to hande the flow:
+
 ```
 app.get('/login', passport.authenticate('forcedotcom'));
 app.get('/token', 
@@ -36,3 +37,15 @@ app.get('/token',
   ```
 
 And as usual with passport, you can update the user serialization/de-serialization.
+
+
+###Example
+There is an example app called `simple-example` in: `examples/` folder. This shows how to use ForceDotCom-Passport with lots of comments. 
+To run locally:
+
+1. Open `app.js` in `examples/simple-example`
+2. Set `CF_CLIENT_ID`, `CF_CLIENT_SECRET`, `CF_CALLBACK_URL` and optionally, `SF_AUTHORIZE_URL`,  `SF_TOKEN_URL` to match your connected app's settings.
+3. Install npm modules by running `npm install`
+4. Run: `node app.js`
+5. Open `localhost:3000` in the browser and try to login using OAuth.
+

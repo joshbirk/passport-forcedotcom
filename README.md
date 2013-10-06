@@ -4,8 +4,15 @@
 
 This is a Strategy for use with http://passportjs.org with the Force.com platform (meaning you can use it with Saleforce CRM, your Force.com applications and Database.com).  With Jared Hanson's help - it properly resolves a previous issue with handling the incoming OAuth information so that things like the instance_url can be readily available.
 
-You'll need to require it:
+###Usage
 
+1. Download this as npm module.
+
+```javascript
+npm install passport-forcedotcom
+```
+
+2 Import it in your app.
 ```javascript
 
 var passport = require('passport')
@@ -14,7 +21,7 @@ var passport = require('passport')
  ```
 
 
- Define the strategy with your application credentials and information:
+3. Define the strategy with your application credentials and information:
 
  ```javascript
  
@@ -31,7 +38,7 @@ var passport = require('passport')
 
 ```
 
-And then setup some routes to hande the flow:
+4. And then setup some routes to hande the flow:
 
 ```javascript
 

@@ -9,10 +9,10 @@ var express = require('express'),
 //----------------------------------------------------------------------------------------------------------------------
 
 //Set Force.com app's clientID
-var CF_CLIENT_ID = '3MVG9Iu66FKeHhIMRxIjEz7UPpO8Lvt3tayXdS9r5kwIr7WikuC6mFu';
+var CF_CLIENT_ID = '3MVG9A2kN3Bn17hsWsLDatw._IRRcBapWFgecAzRUqAny5.wuHmAMejzvV7ZhFlTg5ZPNdHBDjS18Zu0cvgeN';
 
 //Set Force.com app's clientSecret
-var CF_CLIENT_SECRET = '4616869823532';
+var CF_CLIENT_SECRET = '3585278186716093184';
 
 // Note: You should have a app.get(..) for this callback to receive callback from Force.com\
 //
@@ -23,10 +23,10 @@ var CF_CALLBACK_URL = 'http://localhost:3000/auth/forcedotcom/callback';
 
 
 // Salesforce Authorization URL (typically this is: https://login.salesforce.com/services/oauth2/authorize)
-var SF_AUTHORIZE_URL = 'https://mobile1.t.salesforce.com/services/oauth2/authorize';
+var SF_AUTHORIZE_URL = 'https://login.salesforce.com/services/oauth2/authorize';
 
 //Salesforce token URL (typically this is: https://login.salesforce.com/services/oauth2/token)
-var SF_TOKEN_URL = 'https://mobile1.t.salesforce.com/services/oauth2/token';
+var SF_TOKEN_URL = 'https://login.salesforce.com/services/oauth2/token';
 
 //---------------------------------------------------------------------------------------------------------------------
 
@@ -98,6 +98,8 @@ app.configure(function() {
 
 
 app.get('/', function(req, res) {
+    console.log(req.user);
+    console.log(req._oauthData);
     if(!req.user) {
         req.session.destroy();
         req.logout();
@@ -109,11 +111,6 @@ app.get('/', function(req, res) {
     });
 });
 
-app.get('/account', ensureAuthenticated, function(req, res) {
-    res.render('account', {
-        user: req.user
-    });
-});
 
 app.get('/login', function(req, res) {
     req.session.destroy();
@@ -128,14 +125,14 @@ app.get('/login', function(req, res) {
 // GET /auth/forcedotcom
 //   Use passport.authenticate() as route middleware to authenticate the
 //   request.  The first step in Force.com authentication will involve
-//   redirecting the user to angellist.co.  After authorization, Force.com
-//   will redirect the user back to this application at /auth/angellist/callback
+//   redirecting the user to your domain.  After authorization, Force.com
+//   will redirect the user back to this application at /auth/forcedotcom/callback
 app.get('/auth/forcedotcom', passport.authenticate('forcedotcom'), function(req, res) {
     // The request will be redirected to Force.com for authentication, so this
     // function will not be called.
 });
 
-// GET /auth/angellist/callback
+// GET /auth/forcedotcom/callback
 //   PS: This MUST match what you gave as 'callback_url' earlier
 //   Use passport.authenticate() as route middleware to authenticate the
 //   request.  If authentication fails, the user will be redirected back to the

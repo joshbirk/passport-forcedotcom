@@ -1,16 +1,49 @@
 {
   "name": "passport-forcedotcom",
-  "version": "0.0.2",
+  "version": "0.1.0",
   "description": "Salesforce.com/Force.com/Database.com authentication strategy for Passport.",
-  "author": "Joshua Birk <joshua.birk@salesforce.com>, Jared Hanson <jaredhanson@gmail.com> (http://www.jaredhanson.net/), Raja Rao <rajaraodv100@yahoo.com> (http://www.twitter.com/rajaraodv)",
+  "author": {
+    "name": "Joshua Birk",
+    "email": "joshua.birk@salesforce.com"
+  },
+  "contributors": [
+    {
+      "name":"Jared Hanson",
+      "email": "jaredhanson@gmail.com",
+      "url": "http://www.jaredhanson.net/"
+    },
+    {
+      "name":"Raja Rao",
+      "email":"rajaraodv100@yahoo.com",
+      "url":"http://www.twitter.com/rajaraodv"
+    },
+    {
+      "name": "GoInstant Inc.",
+      "email": "support@goinstant.com",
+      "url": "https://goinstant.com"
+    }
+  ],
   "repository": {
     "type": "git",
     "url": "http://github.com/joshbirk/passport-forcedotcom.git"
   },
+  "license": "BSD-3-Clause",
   "main": "./lib/passport-forcedotcom",
   "dependencies": {
-    "passport-oauth": ">= 0.1.2"
+    "passport-oauth2": "1.1.1"
   },
-  "engines": { "node": ">= 0.4.0" },
-  "keywords": ["passport", "salesforce", "salesforce.com", "force.com", "database.com", "auth", "authn", "authentication", "identity"]
+  "engines": {
+    "node": ">= 0.4.0"
+  },
+  "keywords": [
+    "passport",
+    "salesforce",
+    "salesforce.com",
+    "force.com",
+    "database.com",
+    "auth",
+    "authn",
+    "authentication",
+    "identity"
+  ]
 }

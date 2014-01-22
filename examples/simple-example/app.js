@@ -1,3 +1,4 @@
+'use strict';
 var express = require('express'),
   passport = require('passport'),
   util = require('util'),
@@ -74,6 +75,9 @@ var sfStrategy = new ForceDotComStrategy({
     // represent the logged-in user.  In a typical application, you would want
     // to associate the forcedotcom account with a user record in your database,
     // and return that user instead.
+    //
+    // We'll remove the raw profile data here to save space in the session store:
+    delete profile._raw;
     return done(null, profile);
   });
 });
@@ -105,7 +109,6 @@ app.configure(function() {
 
 app.get('/', function(req, res) {
   console.log(req.user);
-  console.log(req._oauthData);
   if(!req.user) {
     req.session.destroy();
     req.logout();

@@ -1,7 +1,7 @@
 # passport-forcedotcom
 
 <p align="center">
-![image](https://raw.github.com/joshbirk/passport-forcedotcom/master/images/sf.png)
+  <img src="https://raw.github.com/joshbirk/passport-forcedotcom/master/images/sf.png" alt="SalesForce" />
 </p>
 
 This is a Strategy for use with [PassportJS](http://passportjs.org) with the

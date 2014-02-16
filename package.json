@@ -1,6 +1,6 @@
 {
   "name": "passport-forcedotcom",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Salesforce.com/Force.com/Database.com authentication strategy for Passport.",
   "author": {
     "name": "Joshua Birk",
@@ -8,14 +8,14 @@
   },
   "contributors": [
     {
-      "name":"Jared Hanson",
+      "name": "Jared Hanson",
       "email": "jaredhanson@gmail.com",
       "url": "http://www.jaredhanson.net/"
     },
     {
-      "name":"Raja Rao",
-      "email":"rajaraodv100@yahoo.com",
-      "url":"http://www.twitter.com/rajaraodv"
+      "name": "Raja Rao",
+      "email": "rajaraodv100@yahoo.com",
+      "url": "http://www.twitter.com/rajaraodv"
     },
     {
       "name": "GoInstant Inc.",
@@ -45,5 +45,14 @@
     "authn",
     "authentication",
     "identity"
-  ]
+  ],
+  "devDependencies": {
+    "mocha": "~1.17.1",
+    "chai": "~1.9.0",
+    "express": ">= 0.0.0",
+    "ejs": ">= 0.0.0"
+  },
+  "scripts": {
+    "test": "./node_modules/.bin/mocha -R spec test/run.js"
+  }
 }

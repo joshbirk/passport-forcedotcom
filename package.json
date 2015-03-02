@@ -1,6 +1,6 @@
 {
   "name": "passport-forcedotcom",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Salesforce.com/Force.com/Database.com authentication strategy for Passport.",
   "author": {
     "name": "Joshua Birk",

@@ -2,7 +2,8 @@
   "name": "passport-forcedotcom-simple-example",
   "version": "0.0.0",
   "dependencies": {
-    "express": ">= 0.0.0",
+    "express": ">= ~3.21.1",
+    "method-override": "~2.3.4",
     "ejs": ">= 0.0.0",
     "passport": ">= 0.0.0",
     "passport-forcedotcom": ">=0.0.0"

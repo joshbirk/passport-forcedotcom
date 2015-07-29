@@ -1,6 +1,6 @@
 {
   "name": "passport-forcedotcom",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Salesforce.com/Force.com/Database.com authentication strategy for Passport.",
   "author": {
     "name": "Joshua Birk",
@@ -21,6 +21,11 @@
       "name": "GoInstant Inc.",
       "email": "support@goinstant.com",
       "url": "https://goinstant.com"
+    },
+    {
+      "name": "Fabian Jakobs",
+      "email": "fabian@c9.io",
+      "url": "https://c9.io"
     }
   ],
   "repository": {

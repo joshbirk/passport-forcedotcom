@@ -34,8 +34,6 @@ passport.use(new ForceDotComStrategy({
   clientID: '{client_id}',
   clientSecret: '{client_secret}',
   scope: ['id','chatter_api'],
-  display: "page", // valid values are: "page", "popup", "touch", "mobile"
-  prompt: "", // valid values are: "login", "consent", or "login consent"
   callbackURL: 'https://my.example.com/auth/forcedotcom/callback'
 }, function verify(token, refreshToken, profile, done) {
   console.log(profile);
@@ -46,7 +44,10 @@ passport.use(new ForceDotComStrategy({
 4. And then setup some routes to hande the flow
 
 ```javascript
-app.get('/auth/forcedotcom', passport.authenticate('forcedotcom'));
+app.get('/auth/forcedotcom', passport.authenticate('forcedotcom'), {
+  display: "page", // valid values are: "page", "popup", "touch", "mobile"
+  prompt: "", // valid values are: "login", "consent", or "login consent"
+});
 // this should match the callbackURL parameter above:
 app.get('/auth/forcedotcom/callback',
   passport.authenticate('forcedotcom', { failureRedirect: '/error' }),

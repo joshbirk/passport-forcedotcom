@@ -34,6 +34,8 @@ passport.use(new ForceDotComStrategy({
   clientID: '{client_id}',
   clientSecret: '{client_secret}',
   scope: ['id','chatter_api'],
+  display: "page", // valid values are: "page", "popup", "touch", "mobile"
+  prompt: "", // valid values are: "login", "consent", or "login consent"
   callbackURL: 'https://my.example.com/auth/forcedotcom/callback'
 }, function verify(token, refreshToken, profile, done) {
   console.log(profile);

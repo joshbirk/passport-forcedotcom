@@ -47,6 +47,7 @@ passport.use(new ForceDotComStrategy({
 app.get('/auth/forcedotcom', passport.authenticate('forcedotcom'), {
   display: "page", // valid values are: "page", "popup", "touch", "mobile"
   prompt: "", // valid values are: "login", "consent", or "login consent"
+  login_hint: ""
 });
 // this should match the callbackURL parameter above:
 app.get('/auth/forcedotcom/callback',

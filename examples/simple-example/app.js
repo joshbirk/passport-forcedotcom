@@ -1,5 +1,6 @@
 'use strict';
 var express = require('express'),
+  methodOverride = require('method-override'),
   passport = require('passport'),
   util = require('util'),
   ForceDotComStrategy = require('passport-forcedotcom').Strategy;
@@ -94,7 +95,7 @@ app.use(express.logger());
 app.use(express.cookieParser());
 app.use(express.json());
 app.use(express.urlencoded());
- //app.use(express.methodOverride());
+app.use(methodOverride());
 app.use(express.session({
   secret: 'keyboard cat'
 }));

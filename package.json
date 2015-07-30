@@ -1,6 +1,6 @@
 {
   "name": "passport-forcedotcom",
-  "version": "0.1.2.0",
+  "version": "0.1.2",
   "description": "Salesforce.com/Force.com/Database.com authentication strategy for Passport.",
   "author": {
     "name": "Joshua Birk",
@@ -16,11 +16,6 @@
       "name": "Raja Rao",
       "email": "rajaraodv100@yahoo.com",
       "url": "http://www.twitter.com/rajaraodv"
-    },
-    {
-      "name": "Jeremy Stashewsky",
-      "email": "stash@gmail.com",
-      "url": "https://salesforce.com"
     },
     {
       "name": "Jeremy Stashewsky",

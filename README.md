@@ -102,7 +102,8 @@ To run locally:
 - <a href='https://twitter.com/jaredhanson' target='_blank'>Jared Hanson</a> -
   whose help resolved a previous issue with handling the incoming OAuth
   information so that things like the `instance_url` can be readily available.
-- <a href='https://goinstant.com' target='_blank'>GoInstant</a>
+- The team at GoInstant (now Salesforce) who made sure it was production worthy.
+- Updates, quality of life additions, enhancements from <a href="http://absurdnerd.co">Jason Ghent</a> and <a href="https://c9.io">Fabian Jakobs</a>.
 
 ### Legal
 

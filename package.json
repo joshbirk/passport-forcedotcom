@@ -42,7 +42,7 @@
   "license": "BSD-3-Clause",
   "main": "./lib/passport-forcedotcom",
   "dependencies": {
-    "passport-oauth2": "1.1.1"
+    "passport-oauth2": "1.1.2"
   },
   "engines": {
     "node": ">= 0.4.0"

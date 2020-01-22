@@ -47,7 +47,8 @@ passport.use(new ForceDotComStrategy({
 app.get('/auth/forcedotcom', passport.authenticate('forcedotcom'), {
   display: "page", // valid values are: "page", "popup", "touch", "mobile"
   prompt: "", // valid values are: "login", "consent", or "login consent"
-  login_hint: ""
+  login_hint: "", // optional: the user's SalesForce email address or username
+  state: "" // optional: an aribrary URL encoded string that will get passed back to you
 });
 // this should match the callbackURL parameter above:
 app.get('/auth/forcedotcom/callback',
@@ -59,6 +60,10 @@ app.get('/auth/forcedotcom/callback',
 ```
 
 And as usual with passport, you can update the user serialization/de-serialization.
+
+The `login_hint` parameter may be used by SalesForce to pre-populate the username field on the login form. This don't seem to be very reliable though. See the [SalesForce OAuth documentation](https://help.salesforce.com/articleView?id=remoteaccess_oauth_web_server_flow.htm&type=0) for more details.
+
+The `state` parameter is useful if you need to maintain information about the user between initiating the login with SalesForce and the user being redirected back to your application. This avoids the need to rely on a cookie to maintain any state information. For example, you could use this to track the page that the user was trying to access before they started the login process. If you pass a `state` string then it should be [URL encoded](https://en.wikipedia.org/wiki/Percent-encoding).
 
 ### Creating a Connected App
 

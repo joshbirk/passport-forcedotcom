@@ -1,6 +1,4 @@
 node_modules
 .idea
 .DS_Store
-erl_crash.dump
-package-lock.json
 .tool-versions

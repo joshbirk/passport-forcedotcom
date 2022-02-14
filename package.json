@@ -1,48 +1,19 @@
 {
-  "name": "passport-forcedotcom",
-  "version": "0.1.6",
-  "description": "Salesforce.com/Force.com/Database.com authentication strategy for Passport.",
+  "name": "@0xgw/passport-forcedotcom",
+  "version": "1.0.0",
+  "description": "Salesforce.com / Force.com / Database.com authentication strategy for Passport.",
   "author": {
-    "name": "Joshua Birk",
-    "email": "joshua.birk@salesforce.com"
+    "name": "Gluework"
   },
-  "contributors": [
-    {
-      "name": "Jared Hanson",
-      "email": "jaredhanson@gmail.com",
-      "url": "http://www.jaredhanson.net/"
-    },
-    {
-      "name": "Raja Rao",
-      "email": "rajaraodv100@yahoo.com",
-      "url": "http://www.twitter.com/rajaraodv"
-    },
-    {
-      "name": "Jeremy Stashewsky",
-      "email": "stash@gmail.com",
-      "url": "https://salesforce.com"
-    },
-    {
-      "name": "Thomas Myrden"
-    },
-    {
-      "name": "Jason Ghent",
-      "url": "http://absurdnerd.com"
-    },
-    {
-      "name": "Fabian Jakobs",
-      "email": "fabian@c9.io",
-      "url": "https://c9.io"
-    },
+  "maintainers": [
     {
       "name": "Guy Maliar",
-      "email": "guy@gluework.io",
-      "url": "https://gluework.io"
+      "email": "guy@gluework.io"
     }
   ],
   "repository": {
     "type": "git",
-    "url": "http://github.com/joshbirk/passport-forcedotcom.git"
+    "url": "http://github.com/0xGW/passport-forcedotcom.git"
   },
   "license": "BSD-3-Clause",
   "main": "./lib/passport-forcedotcom",
@@ -75,6 +46,6 @@
     "passport": "*"
   },
   "scripts": {
-    "test": "./node_modules/.bin/mocha -R spec test/tests"
+    "test": "mocha -R spec test/tests"
   }
 }

@@ -23,38 +23,44 @@ npm install --save passport-forcedotcom
 2. Import it into your app
 
 ```javascript
-var passport = require('passport');
-var ForceDotComStrategy = require('passport-forcedotcom').Strategy;
+var passport = require("passport");
+var ForceDotComStrategy = require("passport-forcedotcom").Strategy;
 ```
 
 3. Define the strategy with your application credentials and information
 
 ```javascript
-passport.use(new ForceDotComStrategy({
-  clientID: '{client_id}',
-  clientSecret: '{client_secret}',
-  scope: ['id','chatter_api'],
-  callbackURL: 'https://my.example.com/auth/forcedotcom/callback'
-}, function verify(token, refreshToken, profile, done) {
-  console.log(profile);
-  return done(null, profile);
-}));
+passport.use(
+  new ForceDotComStrategy(
+    {
+      clientID: "{client_id}",
+      clientSecret: "{client_secret}",
+      scope: ["id", "chatter_api"],
+      callbackURL: "https://my.example.com/auth/forcedotcom/callback",
+    },
+    function verify(token, refreshToken, profile, done) {
+      console.log(profile);
+      return done(null, profile);
+    }
+  )
+);
 ```
 
 4. And then setup some routes to hande the flow
 
 ```javascript
-app.get('/auth/forcedotcom', passport.authenticate('forcedotcom'), {
+app.get("/auth/forcedotcom", passport.authenticate("forcedotcom"), {
   display: "page", // valid values are: "page", "popup", "touch", "mobile"
   prompt: "", // valid values are: "login", "consent", or "login consent"
   login_hint: "", // optional: the user's SalesForce email address or username
-  state: "" // optional: an aribrary URL encoded string that will get passed back to you
+  state: "", // optional: an aribrary URL encoded string that will get passed back to you
 });
 // this should match the callbackURL parameter above:
-app.get('/auth/forcedotcom/callback',
-  passport.authenticate('forcedotcom', { failureRedirect: '/error' }),
-  function(req, res){
-    res.render("index",checkSession(req));
+app.get(
+  "/auth/forcedotcom/callback",
+  passport.authenticate("forcedotcom", { failureRedirect: "/error" }),
+  function (req, res) {
+    res.render("index", checkSession(req));
   }
 );
 ```
@@ -69,7 +75,7 @@ The `state` parameter is useful if you need to maintain information about the us
 
 In order to use this Strategy, you'll need to have a [Connected
 App](https://help.salesforce.com/apex/HTViewHelpDoc?id=connected_app_overview.htm)
-inside of Salesforce.  See [this
+inside of Salesforce. See [this
 article](https://help.salesforce.com/apex/HTViewHelpDoc?id=connected_app_create.htm)
 for detailed and up-to-date Connected App creation instructions.
 
@@ -79,7 +85,7 @@ Tips:
   `client_secret` is referred to as the "Consumer Secret" in some of the UI and
   documentation.
 - Be sure to set the Connected App's callback URL to the same setting you
-  provided in the `new ForceDotComStrategy` constructor.  If you're using
+  provided in the `new ForceDotComStrategy` constructor. If you're using
   `express`, then the route you attach must also correspond to this URL (e.g.
   `app.get('/auth/forcedotcom/callback', ...)`
 - to get a `photos` section in the [User
@@ -95,10 +101,14 @@ There is an example app called `simple-example` in: `examples/` folder. This sho
 To run locally:
 
 1. Open `app.js` in `examples/simple-example`
-2. Set `CF_CLIENT_ID`, `CF_CLIENT_SECRET`, `CF_CALLBACK_URL` and optionally, `SF_AUTHORIZE_URL`,  `SF_TOKEN_URL` to match your connected app's settings.
+2. Set `CF_CLIENT_ID`, `CF_CLIENT_SECRET`, `CF_CALLBACK_URL` and optionally, `SF_AUTHORIZE_URL`, `SF_TOKEN_URL` to match your connected app's settings.
 3. Install npm modules by running `npm install`
 4. Run: `node app.js`
 5. Open `localhost:3000` in the browser and try to login using OAuth.
+
+### Maintainers
+
+- <a href='https://twitter.com/_gluework' target='_blank'>Gluework</a>
 
 ### Authors
 
@@ -109,9 +119,3 @@ To run locally:
   information so that things like the `instance_url` can be readily available.
 - The team at GoInstant (now Salesforce) who made sure it was production worthy.
 - Updates, quality of life additions, enhancements from <a href="http://absurdnerd.co">Jason Ghent</a> and <a href="https://c9.io">Fabian Jakobs</a>.
-
-### Legal
-
-©2013-2014 salesforce.com, All Rights Reserved.
-
-Use and distribution is licensed under the 3-Clause BSD License.

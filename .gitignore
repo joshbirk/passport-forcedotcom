@@ -1,4 +1,4 @@
 node_modules
 .idea
 .DS_Store
-.tool-versions
+erl_crash.dump

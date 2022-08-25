@@ -5,6 +5,10 @@
 var express = require('express'),
   passport = require('passport'),
   util = require('util'),
+  cookieParser = require('cookie-parser'),
+  methodOverride = require('method-override'),
+  session = require('express-session'),
+  morgan = require('morgan'),
   ForceDotComStrategy = require('../lib/passport-forcedotcom').Strategy;
 
 // Force.com App Credentials
@@ -84,30 +88,26 @@ passport.use(sfStrategy);
 var app = express();
 
 // configure Express
-app.configure(function() {
-  app.set('views', __dirname + '/views');
-  app.set('view engine', 'ejs');
-  app.use(express.cookieParser());
-  app.use(express.methodOverride());
-  app.use(express.session({ secret: 'keyboard cat' }));
+app.set('views', __dirname + '/views');
+app.set('view engine', 'ejs');
+app.use(cookieParser());
+app.use(methodOverride());
+app.use(session({ secret: 'keyboard cat' }));
 
-  /* This is a workaround to remove deprecation notices of
-   * third party Connect from our Express implementation.
-   * It is equivalient to bodyParser.
-   */
-  app.use(express.json());
-  app.use(express.urlencoded());
+/* This is a workaround to remove deprecation notices of
+* third party Connect from our Express implementation.
+* It is equivalient to bodyParser.
+*/
+app.use(express.json());
+app.use(express.urlencoded());
 
-  /* Here we disable express's logger */
-  app.use(express.logger(function(tokens, req, res){ return; }));
+app.use(morgan('tiny'));
 
-  // Initialize Passport!  Also use passport.session() middleware, to support
-  // persistent login sessions (recommended).
-  app.use(passport.initialize());
-  app.use(passport.session());
-  app.use(app.router);
-  app.use(express.static(__dirname + '/public'));
-});
+// Initialize Passport!  Also use passport.session() middleware, to support
+// persistent login sessions (recommended).
+app.use(passport.initialize());
+app.use(passport.session());
+app.use(express.static(__dirname + '/public'));
 
 
 app.get('/', function(req, res) {
@@ -157,12 +157,6 @@ app.get('/logout', function(req, res) {
   res.redirect('/login');
 });
 
-app.listen(3000,function(){
-  // Notify our parent process of the server running.
-  process.send('running');
-});
-
-
 // Simple route middleware to ensure user is authenticated.
 //   Use this route middleware on any resource that needs to be protected.  If
 //   the request is authenticated (typically via a persistent login session),
@@ -172,3 +166,7 @@ function ensureAuthenticated(req, res, next) {
   if(req.isAuthenticated()) return next();
   res.redirect('/login');
 }
+
+module.exports = {
+  app: app,
+};

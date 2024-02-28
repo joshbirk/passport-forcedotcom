@@ -51,7 +51,7 @@
   "license": "BSD-3-Clause",
   "main": "./lib/passport-forcedotcom",
   "dependencies": {
-    "passport-oauth2": "^1.6.1"
+    "passport-oauth2": "auth0/passport-oauth2#v1.7.1"
   },
   "engines": {
     "node": ">= 0.4.0"
